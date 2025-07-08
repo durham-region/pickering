@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+body {
+  height: 100vh;
+}
+
+@layer base {
+  a {
+    @apply text-green-800 cursor-pointer font-medium;
+  }
+
+  a:hover {
+    @apply text-green-600 underline;
+  }
+}
