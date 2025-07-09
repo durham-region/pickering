@@ -1,13 +1,15 @@
+import { Badge } from "../../ui/Badge"
 import { entries } from "./entries"
 
+const Categories = ({categories = []}) => categories.map(c => <Badge text={c}/>)
 
 const InfoField = ({ label, children }) => {
   if (!children) {
     return null
   }
   return <div class="flex">
-    <span class="font-medium text-gray-600 inline-block w-20">{label}:</span>
-    {children}
+    <span class="font-medium text-gray-600 block w-20 shrink-0">{label}:</span>
+    <span class="block">{children}</span>
   </div>
 }
 
@@ -26,13 +28,14 @@ const Weblink = ({ url = '' }) => {
 
 const Card = (entry) => (
   <div class="p-3 hover:bg-white border border-gray-300 rounded-lg shadow">
-    <div><span class="font-medium text-lg text-black">{entry.name}</span></div>
+    <div><span class="font-medium text-lg text-emerald-950">{entry.name}</span></div>
     <div class="my-2"><span class="font-medium text-sm text-gray-700">{entry.description}</span></div>
     <InfoField label='Phone'>{entry.phone}</InfoField>
     <InfoField label='Website'>
       <Weblink url={entry.website} />
     </InfoField>
     <InfoField label='Address'>{entry.address}</InfoField>
+    <Categories categories={entry.categories} />
   </div>
 )
 
