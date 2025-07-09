@@ -27,7 +27,7 @@ const Weblink = ({ url = '' }) => {
 }
 
 const Card = (entry) => (
-  <div class="p-3 hover:bg-white border border-gray-300 rounded-lg shadow">
+  <div class="p-3 bg-white border border-gray-300 rounded-lg shadow">
     <div><span class="font-medium text-lg text-emerald-950">{entry.name}</span></div>
     <div class="my-2"><span class="font-medium text-sm text-gray-700">{entry.description}</span></div>
     <InfoField label='Phone'>{entry.phone}</InfoField>
