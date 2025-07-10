@@ -1,6 +1,11 @@
 import { Badge } from "../../ui/Badge"
 import { categories, entries } from "./entries"
 
+const cleanHref = (href = '') => href
+  .replace('http://', '')
+  .replace('https://', '')
+  .replace('www.', '')
+
 const AutoHideField = ({ condition, children }) => condition ? children : null
 
 const InfoField = ({ label, text }) =>
@@ -17,9 +22,9 @@ const LinkField = ({ label, href }) =>
       <span class="block font-medium text-gray-600 w-20 shrink-0">{label}:</span>
       <div class="flex-1 overflow-hidden">
         <a
-          class="block truncate text-ellipsis whitespace-nowrap"
+          class="block truncate text-ellipsis whitespace-nowrap max-w-sm"
           href={href}>
-          {href}
+          {cleanHref(href)}
         </a>
       </div>
     </div>
