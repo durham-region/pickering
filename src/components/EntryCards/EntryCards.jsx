@@ -1,7 +1,7 @@
 import { Badge } from "../../ui/Badge"
-import { entries } from "./entries"
+import { categories, entries } from "./entries"
 
-const Categories = ({categories = []}) => categories.map(c => <Badge text={c}/>)
+const Categories = ({ categories = [] }) => categories.map(c => <Badge text={c} />)
 
 const InfoField = ({ label, children }) => {
   if (!children) {
@@ -35,13 +35,43 @@ const Card = (entry) => (
       <Weblink url={entry.website} />
     </InfoField>
     <InfoField label='Address'>{entry.address}</InfoField>
-    <Categories categories={entry.categories} />
+    <div class="pt-2">
+      <Categories categories={entry.categories} />
+    </div>
   </div>
 )
 
-export const EntryCards = () => {
-  const cards = entries.map(e => Card(e))
-  return <div class="space-y-2" >
+const CardsGroup = ({ category }) => {
+  const cards = entries
+    .filter(e => e.categories.includes(category))
+    .map(e => Card(e))
+  return <div class="space-y-2 py-3" >
+    <h2 class="text-2xl text-emerald-950 font-semibold">{category}</h2>
     {cards}
   </div>
 }
+
+
+export const EntryCards = () =>
+  <div>
+    <CardsGroup category={categories.walkInClinics} />
+    <CardsGroup category={categories.durhamRegionProgram} />
+    <CardsGroup category={categories.cityOfPickeringProgram} />
+    <CardsGroup category={categories.townOfAjax} />
+    <CardsGroup category={categories.cityOfToronto} />
+    <CardsGroup category={categories.indoorPlayground} />
+    <CardsGroup category={categories.otherActivities} />
+    <CardsGroup category={categories.retailStorePrograms} />
+    <CardsGroup category={categories.secondHandStores} />
+    <CardsGroup category={categories.farms} />
+    <CardsGroup category={categories.localServices} />
+    <CardsGroup category={categories.childCare} />
+  </div>
+
+
+// export const EntryCards = () => {
+//   const cards = entries.map(e => Card(e))
+//   return <div class="space-y-2" >
+//     {cards}
+//   </div>
+// }

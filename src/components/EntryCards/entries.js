@@ -1,4 +1,4 @@
-const categories = {
+export const categories = {
   walkInClinics: 'Walk-in Clinics',
   childCare: 'Child Care',
   durhamRegionProgram: 'Durham Region Program',
@@ -12,9 +12,6 @@ const categories = {
   secondHandStores: 'Second Hand Stores',
   localServices: 'Local Services'
 }
-
-
-
 
 /**
  * @typedef {Object} Entry
