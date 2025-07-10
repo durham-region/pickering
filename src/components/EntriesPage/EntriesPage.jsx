@@ -1,4 +1,5 @@
 import { EntryCards } from "../EntryCards/EntryCards"
+import pdfUrl from "../../assets/pickering-toddler-guide.pdf"
 
 export const EntriesPage = () => {
   return <div class="space-y-2 my-5">
@@ -9,7 +10,7 @@ export const EntriesPage = () => {
       <a class="block bg-emerald-600 py-1 px-3 border rounded-md border-emerald-800 text-white no-underline font-medium" onclick={() => window.print()} href="">Print</a>
       <a class="block bg-emerald-600 py-1 px-3 border rounded-md border-emerald-800 text-white no-underline font-medium"
         target="_blank"
-        href="assets/pickering-toddler-guide.pdf">View as PDF</a>
+        href={pdfUrl}>View as PDF</a>
     </div>
 
     <div class="my-5">
