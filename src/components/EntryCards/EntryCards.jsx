@@ -8,8 +8,8 @@ const InfoField = ({ label, children }) => {
     return null
   }
   return <div class="flex">
-    <span class="font-medium text-gray-600 block w-20 shrink-0">{label}:</span>
-    <span class="block">{children}</span>
+    <span class="inline-block font-medium text-gray-600 w-20 shrink-0">{label}:</span>
+    <span class="inline-block">{children}</span>
   </div>
 }
 
@@ -20,7 +20,10 @@ const Weblink = ({ url = '' }) => {
     .substring(0, 60)
 
   return <a
-    class="inline-block max-w-xs truncate"
+    // class="inline-block max-w-xs truncate"
+    // class="block truncate text-ellipsis"
+          class="block truncate text-ellipsis whitespace-nowrap overflow-hidden"
+
     href={url}>
     {shortUrl}
   </a>
@@ -67,11 +70,3 @@ export const EntryCards = () =>
     <CardsGroup category={categories.localServices} />
     <CardsGroup category={categories.childCare} />
   </div>
-
-
-// export const EntryCards = () => {
-//   const cards = entries.map(e => Card(e))
-//   return <div class="space-y-2" >
-//     {cards}
-//   </div>
-// }
