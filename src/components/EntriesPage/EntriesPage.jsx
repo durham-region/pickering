@@ -7,7 +7,9 @@ export const EntriesPage = () => {
 
     <div class="my-5 flex space-x-5 justify-center">
       <a class="block bg-emerald-600 py-1 px-3 border rounded-md border-emerald-800 text-white no-underline font-medium" onclick={() => window.print()} href="">Print</a>
-      <a class="block bg-emerald-600 py-1 px-3 border rounded-md border-emerald-800 text-white no-underline font-medium" target="_blank" href="/src/assets/pickering-toddler-guide.pdf">View as PDF</a>
+      <a class="block bg-emerald-600 py-1 px-3 border rounded-md border-emerald-800 text-white no-underline font-medium"
+        target="_blank"
+        href="assets/pickering-toddler-guide.pdf">View as PDF</a>
     </div>
 
     <div class="my-5">
