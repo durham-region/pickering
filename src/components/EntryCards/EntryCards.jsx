@@ -1,45 +1,41 @@
 import { Badge } from "../../ui/Badge"
 import { categories, entries } from "./entries"
 
-const Categories = ({ categories = [] }) => categories.map(c => <Badge text={c} />)
+const AutoHideField = ({ condition, children }) => condition ? children : null
 
-const InfoField = ({ label, children }) => {
-  if (!children) {
-    return null
-  }
-  return <div class="flex">
-    <span class="inline-block font-medium text-gray-600 w-20 shrink-0">{label}:</span>
-    <span class="inline-block">{children}</span>
-  </div>
-}
+const InfoField = ({ label, text }) =>
+  <AutoHideField condition={text}>
+    <div class="flex max-w-full">
+      <span class="block font-medium text-gray-600 w-20 shrink-0">{label}:</span>
+      <span class="block">{text}</span>
+    </div>
+  </AutoHideField>
 
-const Weblink = ({ url = '' }) => {
-  const shortUrl = url
-    .replace('https://', '')
-    .replace('www.', '')
-    .substring(0, 60)
+const LinkField = ({ label, href }) =>
+  <AutoHideField condition={href}>
+    <div class="flex max-w-full">
+      <span class="block font-medium text-gray-600 w-20 shrink-0">{label}:</span>
+      <div class="flex-1 overflow-hidden">
+        <a
+          class="block truncate text-ellipsis whitespace-nowrap"
+          href={href}>
+          {href}
+        </a>
+      </div>
+    </div>
+  </AutoHideField>
 
-  return <a
-    // class="inline-block max-w-xs truncate"
-    // class="block truncate text-ellipsis"
-          class="block truncate text-ellipsis whitespace-nowrap overflow-hidden"
-
-    href={url}>
-    {shortUrl}
-  </a>
-}
+const Badges = ({ text = [] }) => text.map(c => <Badge text={c} />)
 
 const Card = (entry) => (
   <div class="p-3 bg-white border border-gray-300 rounded-lg shadow">
-    <div><span class="font-medium text-lg text-emerald-950">{entry.name}</span></div>
-    <div class="my-2"><span class="font-medium text-sm text-gray-700">{entry.description}</span></div>
-    <InfoField label='Phone'>{entry.phone}</InfoField>
-    <InfoField label='Website'>
-      <Weblink url={entry.website} />
-    </InfoField>
-    <InfoField label='Address'>{entry.address}</InfoField>
+    <span class="block font-medium text-lg text-emerald-950">{entry.name}</span>
+    <span class="block my-2 font-medium text-sm text-gray-700">{entry.description}</span>
+    <InfoField label='Phone' text={entry.phone} />
+    <LinkField label="Website" href={entry.website} />
+    <InfoField label='Address' text={entry.address} />
     <div class="pt-2">
-      <Categories categories={entry.categories} />
+      <Badges text={entry.categories} />
     </div>
   </div>
 )
@@ -53,7 +49,6 @@ const CardsGroup = ({ category }) => {
     {cards}
   </div>
 }
-
 
 export const EntryCards = () =>
   <div>
