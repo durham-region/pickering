@@ -1,5 +1,17 @@
 import { EntryCards } from "../EntryCards/EntryCards"
 import pdfUrl from "../../assets/pickering-toddler-guide.pdf"
+import { Printer } from "../../icons/Printer"
+import { DownloadFile } from "../../icons/DownloadFile"
+import { Adjustment } from "../../icons/Adjustment"
+
+const Icon = ({ footer = '', onClick = () => null, children }) =>
+  <div class="bg-white flex flex-col items-center px-16 py-3 border rounded-md border-emerald-900 cursor-pointer hover:bg-emerald-50 hover:shadow-md"
+  onclick={onClick}>
+    <div>
+      {children}
+    </div>
+    <span class="block">{footer}</span>
+  </div>
 
 export const EntriesPage = () => {
   return <div class="space-y-2 my-5">
@@ -7,10 +19,11 @@ export const EntriesPage = () => {
     <p>Would you like to add an entry to this list or send feedback? Send and email to <a href="mailto:ontario.durham.region@gmail.com">ontario.durham.region@gmail.com</a> </p>
 
     <div class="my-5 flex space-x-5 justify-center">
-      <a class="block bg-emerald-600 py-1 px-3 border rounded-md border-emerald-800 text-white no-underline font-medium" onclick={() => window.print()} href="">Print</a>
-      <a class="block bg-emerald-600 py-1 px-3 border rounded-md border-emerald-800 text-white no-underline font-medium"
-        target="_blank"
-        href={pdfUrl}>View as PDF</a>
+      <div class="flex gap-3">
+        <Icon footer="Print" onClick={() => window.print()}><Printer /></Icon>
+        <Icon footer="PDF" onClick={() => window.open(pdfUrl, '_blank')}><DownloadFile /></Icon>
+        <Icon footer="Filter"><Adjustment /></Icon>
+      </div>
     </div>
 
     <div class="my-5">
