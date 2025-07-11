@@ -5,7 +5,7 @@ import { DownloadFile } from "../../icons/DownloadFile"
 import { Adjustment } from "../../icons/Adjustment"
 
 const Icon = ({ footer = '', onClick = () => null, children }) =>
-  <div class="bg-white flex flex-col items-center px-16 py-3 border rounded-md border-emerald-900 cursor-pointer hover:bg-emerald-50 hover:shadow-md"
+  <div class="flex flex-col items-center bg-white py-3 px-8 md:px-16 border rounded-md border-emerald-900 cursor-pointer hover:bg-emerald-50 hover:shadow-md"
   onclick={onClick}>
     <div>
       {children}
@@ -18,8 +18,8 @@ export const EntriesPage = () => {
     <p>Everything Pickering parents need to keep their toddlers happy, active, and entertained. Activities are located within a 25min drive.</p>
     <p>Would you like to add an entry to this list or send feedback? Send and email to <a href="mailto:ontario.durham.region@gmail.com">ontario.durham.region@gmail.com</a> </p>
 
-    <div class="my-5 flex space-x-5 justify-center">
-      <div class="flex gap-3">
+    <div class="mt-8 mb-6 flex space-x-5 justify-center">
+      <div class="flex gap-2">
         <Icon footer="Print" onClick={() => window.print()}><Printer /></Icon>
         <Icon footer="PDF" onClick={() => window.open(pdfUrl, '_blank')}><DownloadFile /></Icon>
         <Icon footer="Filter"><Adjustment /></Icon>
