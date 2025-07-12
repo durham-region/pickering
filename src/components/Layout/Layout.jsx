@@ -14,10 +14,10 @@ export const Layout = () => (
       </div>
     </div>
 
-    <div class="flex h-14 px-1 justify-center bg-emerald-800">
-      <div class="flex flex-col gap-1 h-14 justify-center items-center w-full max-w-4xl text-white font-bold">
+    <div class="flex px-1 justify-center bg-emerald-800">
+      <div class="flex flex-col gap-1 min-h-14 justify-center items-center w-full max-w-4xl text-white font-bold">
         <a class="block text-white" href="mailto:ontario.durham.region@gmail.com">ontario.durham.region@gmail.com</a>
-        <img class="block" src="https://hits.sh/github.com/durham-region/pickering/hits.svg?label=Views&color=00bc7d&labelColor=006045"/>
+        <img class="block" src={`https://hits.sh/hits.sh/${location.hostname}/durham-region/pickering/hits.svg?label=views&labelColor=25634c`}/>
       </div>
     </div>
   </div>
