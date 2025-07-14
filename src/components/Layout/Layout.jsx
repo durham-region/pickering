@@ -1,10 +1,12 @@
+import Footer from "daisyui/components/footer";
 import { EntriesPage } from "../EntriesPage/EntriesPage";
+import { Header } from "./Header";
 
 export const Layout = () => (
   <div class="flex flex-col h-screen w-full">
     <div class="flex h-14 px-1 justify-center bg-emerald-800">
       <div class="flex h-14 justify-center items-center w-full max-w-4xl text-white font-bold">
-        <h1 class="text-2xl">Pickering Toddler Guide</h1>
+        <Header/>
       </div>
     </div>
 
@@ -16,8 +18,7 @@ export const Layout = () => (
 
     <div class="flex px-1 justify-center bg-emerald-800">
       <div class="flex flex-col gap-1 min-h-14 justify-center items-center w-full max-w-4xl text-white font-bold">
-        <a class="block text-white" href="mailto:ontario.durham.region@gmail.com">ontario.durham.region@gmail.com</a>
-        <img class="block" src={`https://hits.sh/hits.sh/${location.hostname}/durham-region/pickering/hits.svg?label=views&labelColor=25634c`}/>
+        <Footer/>
       </div>
     </div>
   </div>
