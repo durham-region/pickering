@@ -1,6 +1,6 @@
-import Footer from "daisyui/components/footer";
 import { EntriesPage } from "../EntriesPage/EntriesPage";
 import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 export const Layout = () => (
   <div class="flex flex-col h-screen w-full">
