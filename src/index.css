@@ -1,7 +1,6 @@
 @import "tailwindcss";
-
-body {
-  height: 100vh;
+@plugin "daisyui" {
+  themes: emerald --default, emerald --prefersdark;
 }
 
 @layer base {
