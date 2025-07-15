@@ -21,6 +21,9 @@ export const categories = {
  * @property {string} website
  * @property {string} address
  * @property {string[]} categories
+ */
+
+/*
  *
  * @type {Entry[]}
  */
