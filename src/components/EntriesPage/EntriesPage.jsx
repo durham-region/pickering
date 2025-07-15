@@ -15,8 +15,10 @@ const Icon = ({ footer = '', onClick = () => null, children }) =>
 
 export const EntriesPage = () => {
   return <div class="space-y-2 my-5">
+    <article class="prose max-w-none">
     <p>Everything Pickering parents need to keep their toddlers happy, active, and entertained. Activities are located within a 25min drive.</p>
     <p>Would you like to add an entry to this list or send feedback? Send and email to <a href="mailto:ontario.durham.region@gmail.com">ontario.durham.region@gmail.com</a> </p>
+    </article>
 
     <div class="mt-8 mb-6 flex space-x-5 justify-center">
       <div class="flex gap-2">

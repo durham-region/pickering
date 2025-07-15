@@ -32,25 +32,29 @@ const LinkField = ({ label, href }) =>
 
 const Badges = ({ text = [] }) => text.map(c => <Badge text={c} />)
 
-const Card = (entry) => (
-  <div class="p-3 bg-white border border-gray-300 rounded-lg shadow">
-    <span class="block font-medium text-lg text-emerald-950">{entry.name}</span>
-    <span class="block my-2 font-medium text-sm text-gray-700">{entry.description}</span>
-    <InfoField label='Phone' text={entry.phone} />
-    <LinkField label="Website" href={entry.website} />
-    <InfoField label='Address' text={entry.address} />
-    <div class="pt-2">
-      <Badges text={entry.categories} />
+const Card = (entry) =>
+  <div className="card bg-base-100 card-md shadow-sm">
+    <div className="card-body">
+      <h2 className="card-title">{entry.name}</h2>
+      <p>{entry.description}</p>
+      <InfoField label='Phone' text={entry.phone} />
+      <LinkField label="Website" href={entry.website} />
+      <InfoField label='Address' text={entry.address} />
+      <div class="pt-2">
+        <Badges text={entry.categories} />
+      </div>
     </div>
   </div>
-)
+
 
 const CardsGroup = ({ category }) => {
   const cards = entries
     .filter(e => e.categories.includes(category))
     .map(e => Card(e))
-  return <div class="space-y-2 py-3" >
-    <h2 class="text-2xl text-emerald-950 font-semibold">{category}</h2>
+  return <div class="space-y-3 py-3" >
+    <article class="prose">
+      <h2>{category}</h2>
+    </article>
     {cards}
   </div>
 }
