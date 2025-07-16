@@ -1,3 +1,10 @@
+/**
+ * @typedef {Object.<string, string>} Category
+ */
+
+/**
+ * @type {Category[]}
+ */
 export const categories = {
   walkInClinics: 'Walk-in Clinics',
   childCare: 'Child Care',
@@ -23,8 +30,7 @@ export const categories = {
  * @property {string[]} categories
  */
 
-/*
- *
+/**
  * @type {Entry[]}
  */
 export const entries = [{

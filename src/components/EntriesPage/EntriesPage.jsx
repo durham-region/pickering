@@ -2,8 +2,8 @@ import { EntryCards } from "../EntryCards/EntryCards"
 import pdfUrl from "../../assets/pickering-toddler-guide.pdf"
 import { Printer } from "../../icons/Printer"
 import { DownloadFile } from "../../icons/DownloadFile"
-import { Adjustment } from "../../icons/Adjustment"
-import { categories } from "../EntryCards/entries"
+import { CategoryFilter } from "./CategoryFilter"
+import { createSignal } from "solid-js"
 
 const Icon = ({ footer = '', onClick = () => null, children }) =>
   <div class="flex flex-col items-center bg-white py-3 px-8 md:px-16 border rounded-md border-emerald-900 cursor-pointer hover:bg-emerald-50 hover:shadow-md"
@@ -15,6 +15,9 @@ const Icon = ({ footer = '', onClick = () => null, children }) =>
   </div>
 
 export const EntriesPage = () => {
+  const [filters, setFilters] = createSignal(['test'])
+
+  
   return <div class="space-y-2 my-5">
     <article class="prose max-w-none">
       <p>Everything Pickering parents need to keep their toddlers happy, active, and entertained. Activities are located within a 25min drive.</p>
@@ -29,24 +32,11 @@ export const EntriesPage = () => {
     </div>
 
 
-    <div className="bg-base-100 border-base-300 collapse border collapse-arrow">
-      <input type="checkbox" className="peer" />
-      <div
-        className="collapse-title bg-base-100 flex gap-x-3"
-      >
-      <Adjustment/>  Filter categories
-      </div>
-      <div
-        className="collapse-content"
-      >
-        
-      {Object.values(categories).map(c => <p>{c}</p>)}
+    <CategoryFilter onChange={setFilters}/>
+
+    {filters}
 
 
-      </div>
-    </div>
-
-    
     <div class="my-5">
       <EntryCards />
     </div>
