@@ -4,6 +4,7 @@ import { Printer } from "../../icons/Printer"
 import { DownloadFile } from "../../icons/DownloadFile"
 import { CategoryFilter } from "./CategoryFilter"
 import { createSignal } from "solid-js"
+import { categories } from "../EntryCards/entries"
 
 const Icon = ({ footer = '', onClick = () => null, children }) =>
   <div class="flex flex-col items-center bg-white py-3 px-8 md:px-16 border rounded-md border-emerald-900 cursor-pointer hover:bg-emerald-50 hover:shadow-md"
@@ -15,8 +16,7 @@ const Icon = ({ footer = '', onClick = () => null, children }) =>
   </div>
 
 export const EntriesPage = () => {
-  const [filters, setFilters] = createSignal(['test'])
-
+  const [filters, setFilters] = createSignal(Object.keys(categories))
   
   return <div class="space-y-2 my-5">
     <article class="prose max-w-none">
@@ -31,14 +31,10 @@ export const EntriesPage = () => {
       </div>
     </div>
 
-
     <CategoryFilter onChange={setFilters}/>
 
-    {filters}
-
-
     <div class="my-5">
-      <EntryCards />
+      <EntryCards filters={filters}/>
     </div>
   </div>
 }

@@ -1,5 +1,7 @@
+import { For } from "solid-js"
+
 import { categories, entries } from "./entries"
-import {Card} from "./Card"
+import { Card } from "./Card"
 
 const CardsGroup = ({ category }) => {
   const cards = entries
@@ -13,18 +15,7 @@ const CardsGroup = ({ category }) => {
   </div>
 }
 
-export const EntryCards = () =>
-  <div>
-    <CardsGroup category={categories.walkInClinics} />
-    <CardsGroup category={categories.durhamRegionProgram} />
-    <CardsGroup category={categories.cityOfPickeringProgram} />
-    <CardsGroup category={categories.townOfAjax} />
-    <CardsGroup category={categories.cityOfToronto} />
-    <CardsGroup category={categories.indoorPlayground} />
-    <CardsGroup category={categories.otherActivities} />
-    <CardsGroup category={categories.retailStorePrograms} />
-    <CardsGroup category={categories.secondHandStores} />
-    <CardsGroup category={categories.farms} />
-    <CardsGroup category={categories.localServices} />
-    <CardsGroup category={categories.childCare} />
-  </div>
+export const EntryCards = (props) =>
+  <For each={props.filters()}>
+    {(c) => <CardsGroup category={categories[c]} />}
+  </For>
