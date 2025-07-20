@@ -3,7 +3,9 @@
 @plugin "@tailwindcss/typography";
 
 @plugin "daisyui" {
-  themes: emerald --default, emerald --prefersdark;
+  themes:
+    emerald --default,
+    emerald --prefersdark;
 }
 
 @layer base {

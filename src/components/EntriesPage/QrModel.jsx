@@ -1,15 +1,14 @@
 import qrCodeUrl from "../../assets/qr-code.svg"
 
-
 export const createQrModal = () => {
-  let modalRef;
+  let modalRef
 
   const showModal = () => modalRef.showModal()
 
-  const view =
-    <dialog ref={el => modalRef = el} class="modal">
+  const view = (
+    <dialog ref={el => (modalRef = el)} class="modal">
       <div class="modal-box flex flex-col items-center">
-        <img src={qrCodeUrl} class="w-full"/>
+        <img src={qrCodeUrl} class="w-full" />
         <p class="py-4 text-sm">https://durham-region.github.io/pickering</p>
         <div class="modal-action">
           <form method="dialog">
@@ -18,6 +17,7 @@ export const createQrModal = () => {
         </div>
       </div>
     </dialog>
+  )
 
   return [view, showModal]
 }

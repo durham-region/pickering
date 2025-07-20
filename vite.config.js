@@ -1,25 +1,25 @@
-import { defineConfig } from 'vite';
-import solidPlugin from 'vite-plugin-solid';
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from "vite"
+import solidPlugin from "vite-plugin-solid"
+import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
   plugins: [solidPlugin(), tailwindcss()],
-  base: '/pickering/',
+  base: "/pickering/",
   server: {
     port: 3000,
   },
   test: {
-    environment: 'jsdom',
+    environment: "jsdom",
     globals: true,
-    setupFiles: ['node_modules/@testing-library/jest-dom/vitest'],
+    setupFiles: ["node_modules/@testing-library/jest-dom/vitest"],
     // if you have few tests, try commenting this
     // out to improve performance:
     isolate: false,
   },
   build: {
-    target: 'esnext',
+    target: "esnext",
   },
   resolve: {
-    conditions: ['development', 'browser'],
+    conditions: ["development", "browser"],
   },
-});
+})
