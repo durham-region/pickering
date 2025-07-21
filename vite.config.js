@@ -12,8 +12,8 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["node_modules/@testing-library/jest-dom/vitest"],
-    // if you have few tests, try commenting this
-    // out to improve performance:
+    // If you have few tests, try commenting this
+    // Out to improve performance:
     isolate: false,
   },
   build: {

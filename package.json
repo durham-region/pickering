@@ -9,7 +9,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "test": "vitest",
-    "fmt": "prettier . --write && eslint ."
+    "fmt": "prettier . --write && eslint . --fix"
   },
   "license": "MIT",
   "devDependencies": {

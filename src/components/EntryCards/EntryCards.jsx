@@ -15,4 +15,4 @@ const CardsGroup = ({ category }) => {
   )
 }
 
-export const EntryCards = props => <For each={props.filters()}>{c => <CardsGroup category={categories[c]} />}</For>
+export const EntryCards = ({ filters }) => <For each={filters()}>{c => <CardsGroup category={categories[c]} />}</For>
