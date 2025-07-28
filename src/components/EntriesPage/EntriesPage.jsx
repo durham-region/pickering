@@ -7,16 +7,7 @@ import { CategoryFilter } from "./CategoryFilter"
 import { createSignal } from "solid-js"
 import { categories } from "../EntryCards/entries"
 import { createQrModal } from "./QrModel"
-
-const Icon = ({ footer = "", onClick = () => null, children }) => (
-  <div
-    class="flex flex-col items-center bg-white py-3 px-8 md:px-16 border rounded-md border-emerald-900 cursor-pointer hover:bg-emerald-50 hover:shadow-md"
-    onclick={onClick}
-  >
-    <div>{children}</div>
-    <span class="block">{footer}</span>
-  </div>
-)
+import { Icon } from "./Icon"
 
 export const EntriesPage = () => {
   const [filters, setFilters] = createSignal(Object.keys(categories))
