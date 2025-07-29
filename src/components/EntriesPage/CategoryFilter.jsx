@@ -24,10 +24,7 @@ export const CategoryFilter = props => {
   }
 
   return (
-    <div
-      class={`bg-base-100 border-base-300 collapse border collapse-arrow 
-              ${isOpen() ? "collapse-open" : ""}`}
-    >
+    <div classList={{ "collapse-open": isOpen() }} class="bg-base-100 border-base-300 collapse border collapse-arrow">
       <div class="collapse-title bg-base-100 flex gap-x-3 cursor-pointer" onClick={() => setOpen(o => !o)}>
         <Adjustment /> Filter categories
       </div>
