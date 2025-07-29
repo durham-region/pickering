@@ -6,7 +6,7 @@ export const createQrModal = () => {
   const showModal = () => modalRef.showModal()
 
   const view = (
-    <dialog ref={el => (modalRef = el)} class="modal">
+    <dialog ref={modalRef} class="modal">
       <div class="modal-box flex flex-col items-center">
         <img src={qrCodeUrl} class="w-full" />
         <p class="py-4 text-sm">https://durham-region.github.io/pickering</p>
